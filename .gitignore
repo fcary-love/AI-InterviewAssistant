@@ -1,0 +1,44 @@
+# IDE
+.idea/
+*.iml
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Backend build
+backend/target/
+
+# Frontend build & deps
+frontend/dist/
+frontend/node_modules/
+
+# Runtime data
+backend/data/
+logs/
+*.log
+
+# Large binary (tesseract trained data - install separately)
+backend/tessdata/
+
+# Conversation logs
+jilu/
+
+# Documentation
+docs/
+*.md
+
+# Database schema & migrations
+backend/src/main/resources/schema.sql
+backend/src/main/resources/db/
+backend/docs/
+
+# Claude Code
+.claude/

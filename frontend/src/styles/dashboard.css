@@ -1,0 +1,321 @@
+/* ============================================
+   Dashboard — Midnight Observatory
+   ============================================ */
+
+.growth-dashboard {
+  display: grid;
+  gap: 20px;
+}
+
+.growth-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.65fr);
+  gap: 18px;
+  margin-top: 8px;
+}
+
+.growth-hero > div,
+.growth-hero > article,
+.growth-card,
+.growth-roadmap,
+.growth-metrics article {
+  background: rgba(26, 26, 48, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-card);
+}
+
+.growth-hero > div {
+  min-height: 240px;
+  padding: 30px;
+  background:
+    radial-gradient(circle at 14% 16%, rgba(45, 212, 191, 0.1), transparent 32%),
+    radial-gradient(circle at 82% 20%, rgba(52, 211, 153, 0.06), transparent 30%),
+    linear-gradient(145deg, var(--bg-abyss), var(--bg-surface) 72%, var(--bg-card));
+}
+
+.growth-hero > article {
+  display: grid;
+  align-content: space-between;
+  min-height: 240px;
+  padding: 26px;
+  background:
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    var(--bg-base);
+  background-size: 30px 30px;
+}
+
+.growth-hero span,
+.growth-card-head span,
+.growth-roadmap > span {
+  color: var(--text-muted);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.growth-hero > div span,
+.growth-hero > div p {
+  color: var(--text-secondary);
+}
+
+.growth-hero strong {
+  display: block;
+  margin-top: 14px;
+  color: var(--text-primary);
+  font-size: clamp(30px, 4.4vw, 56px);
+  line-height: 1.04;
+}
+
+.growth-hero article strong {
+  color: var(--text-primary);
+  font-size: 30px;
+}
+
+.growth-hero p {
+  max-width: 740px;
+  margin: 20px 0 0;
+  color: var(--text-secondary);
+  font-size: 16px;
+  line-height: 1.9;
+}
+
+.growth-action-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.growth-action-strip button {
+  height: 40px;
+  padding: 0 18px;
+  color: var(--gold);
+  background: var(--gold-surface);
+  border: 1px solid var(--gold-border);
+  border-radius: var(--radius-full);
+  font-size: 13px;
+  font-weight: 700;
+  transition: background var(--duration-fast), transform var(--duration-fast);
+}
+
+.growth-action-strip button:hover {
+  background: var(--gold-glow);
+  transform: translateY(-1px);
+}
+
+.growth-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.growth-metrics article {
+  display: grid;
+  gap: 10px;
+  min-height: 132px;
+  padding: 20px;
+}
+
+.growth-metrics span {
+  color: var(--text-muted);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.growth-metrics strong {
+  color: var(--text-primary);
+  font-size: 36px;
+  line-height: 1;
+}
+
+.growth-metrics p {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 13px;
+  line-height: 1.65;
+}
+
+.growth-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(320px, 0.8fr);
+  gap: 18px;
+}
+
+.growth-card {
+  display: grid;
+  gap: 20px;
+  padding: 24px;
+}
+
+.growth-card-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: baseline;
+}
+
+.growth-card-head strong,
+.growth-roadmap strong {
+  color: var(--text-primary);
+  font-size: 23px;
+}
+
+.score-bars {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(58px, 1fr);
+  gap: 14px;
+  min-height: 260px;
+  align-items: end;
+  padding: 20px;
+  overflow-x: auto;
+  background:
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    var(--bg-base);
+  background-size: 30px 30px;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+}
+
+.score-bar-item {
+  display: grid;
+  justify-items: center;
+  gap: 10px;
+  min-width: 58px;
+}
+
+.score-bar-track {
+  display: flex;
+  align-items: end;
+  width: 28px;
+  height: 168px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: var(--radius-full);
+}
+
+.score-bar-track i {
+  width: 100%;
+  min-height: 8px;
+  background: linear-gradient(180deg, var(--gold), var(--gold-deep));
+  border-radius: inherit;
+}
+
+.score-bar-item strong {
+  color: var(--text-primary);
+  font-size: 18px;
+}
+
+.score-bar-item span {
+  color: var(--text-muted);
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.echart-container {
+  width: 100%;
+  height: 280px;
+}
+
+.echart-gauge {
+  height: 220px;
+}
+
+.growth-gauge-strip {
+  margin-top: 0;
+}
+
+.growth-gauge-strip .growth-card {
+  max-width: 400px;
+}
+
+.weak-list {
+  display: grid;
+  gap: 14px;
+}
+
+.weak-list section {
+  display: grid;
+  gap: 10px;
+  padding: 16px;
+  background: var(--bg-input);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+}
+
+.weak-list div {
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.weak-list strong {
+  color: var(--text-primary);
+  font-size: 16px;
+}
+
+.weak-list span,
+.weak-list p,
+.growth-empty-text {
+  color: var(--text-secondary);
+  font-size: 13px;
+  line-height: 1.75;
+}
+
+.weak-list p,
+.growth-empty-text {
+  margin: 0;
+}
+
+.growth-roadmap {
+  display: grid;
+  gap: 14px;
+  padding: 24px;
+}
+
+.growth-roadmap ol {
+  display: grid;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: roadmap;
+}
+
+.growth-roadmap li {
+  position: relative;
+  min-height: 38px;
+  padding: 10px 0 10px 52px;
+  color: var(--text-secondary);
+  line-height: 1.75;
+  counter-increment: roadmap;
+}
+
+.growth-roadmap li::before {
+  position: absolute;
+  top: 11px;
+  left: 0;
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  color: var(--text-inverse);
+  content: counter(roadmap);
+  background: var(--gold);
+  border-radius: 50%;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+@media (max-width: 900px) {
+  .growth-hero,
+  .growth-grid,
+  .growth-metrics {
+    grid-template-columns: 1fr;
+  }
+}

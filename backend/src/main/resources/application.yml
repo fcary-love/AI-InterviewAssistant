@@ -1,0 +1,71 @@
+server:
+  port: 8002
+
+spring:
+  datasource:
+    url: ${DB_URL:jdbc:mysql://localhost:3306/face_ai_interview?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true&useSSL=false}
+    username: ${DB_USERNAME:root}
+    password: ${DB_PASSWORD:your_db_password}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  sql:
+    init:
+      mode: always
+      continue-on-error: true
+      schema-locations: classpath:schema.sql
+  servlet:
+    multipart:
+      max-file-size: 20MB
+      max-request-size: 20MB
+  data:
+    redis:
+      host: ${REDIS_HOST:localhost}
+      port: ${REDIS_PORT:6379}
+  ai:
+    openai:
+      api-key: ${app.ai.api-key}
+      base-url: https://dashscope.aliyuncs.com/compatible-mode
+      embedding:
+        options:
+          model: text-embedding-v3
+    vectorstore:
+      redis:
+        initialize-schema: true
+        index-name: pdf_chunks_idx
+        prefix: pdfchunk
+
+app:
+  cors:
+    allowed-origins: http://localhost:5173,http://127.0.0.1:5173,http://localhost:5174,http://127.0.0.1:5174,http://localhost:5175,http://127.0.0.1:5175
+  storage:
+    root-dir: data
+    upload-dir: uploads
+    document-upload-dir: documents
+    image-upload-dir: uploaded-images
+    image-dir: extracted-images
+    max-file-size-mb: 20
+  ocr:
+    enabled: true
+    data-path: ${OCR_DATA_PATH:./tessdata}
+    language: chi_sim+eng
+    render-dpi: 220
+    image-format: png
+    page-image-dir: ocr-pages
+  ai:
+    base-url: https://dashscope.aliyuncs.com/compatible-mode/v1
+    api-key: ${AI_API_KEY:sk-your-dashscope-api-key}
+    model: qwen3.5-omni-plus
+    text-model: qwen-plus
+    vision-model: qwen3.5-omni-plus
+    chat-path: /chat/completions
+    temperature: 0.3
+    max-tokens: 900
+  rag:
+    enabled: true
+    chunk-size: 800
+    chunk-overlap: 120
+    top-k: 4
+    similarity-threshold: 0.2
+    index-prefix: pdfchunk
+  auth:
+    jwt-secret: ${JWT_SECRET:your-jwt-secret-must-be-at-least-24-characters}
+    token-ttl-hours: 168

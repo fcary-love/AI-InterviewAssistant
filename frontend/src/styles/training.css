@@ -1,0 +1,297 @@
+/* ============================================
+   Training — Midnight Observatory
+   ============================================ */
+
+.training-panel {
+  display: grid;
+  gap: 20px;
+}
+
+.training-hero {
+  display: grid;
+  grid-template-columns: minmax(280px, 0.37fr) minmax(0, 1fr);
+  gap: 16px;
+}
+
+.training-score-card,
+.training-overview-grid article,
+.training-command,
+.weak-strip,
+.training-column,
+.training-next {
+  background: rgba(26, 26, 48, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-card);
+}
+
+.training-score-card {
+  min-height: 200px;
+  padding: 28px;
+  background:
+    radial-gradient(circle at 26% 20%, rgba(45, 212, 191, 0.12), transparent 36%),
+    linear-gradient(155deg, #17161f, #1d2b33 76%);
+}
+
+.training-score-card span,
+.training-command span,
+.weak-strip span,
+.training-column-head span,
+.training-task-head span {
+  color: var(--text-muted);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.training-score-card span,
+.training-score-card p {
+  color: var(--text-secondary);
+}
+
+.training-score-card strong {
+  display: block;
+  margin-top: 14px;
+  font-size: clamp(52px, 7vw, 90px);
+  line-height: 0.93;
+  color: var(--gold);
+}
+
+.training-score-card p,
+.training-command p,
+.training-task-card p {
+  margin: 16px 0 0;
+  line-height: 1.85;
+  color: var(--text-secondary);
+}
+
+.training-overview-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.training-overview-grid article {
+  display: grid;
+  align-content: space-between;
+  min-height: 200px;
+  padding: 22px;
+  background:
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    var(--bg-base);
+  background-size: 30px 30px;
+}
+
+.training-overview-grid strong {
+  color: var(--text-primary);
+  font-size: 46px;
+  line-height: 1;
+}
+
+.training-command {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 20px;
+  align-items: center;
+  padding: 24px;
+}
+
+.training-command strong {
+  display: block;
+  margin-top: 10px;
+  color: var(--text-primary);
+  font-size: 26px;
+}
+
+.training-command button,
+.training-next button,
+.training-actions button,
+.weak-strip button {
+  min-height: 44px;
+  padding: 0 20px;
+  color: var(--text-inverse);
+  background: linear-gradient(135deg, var(--gold-deep), var(--gold));
+  border: 0;
+  border-radius: var(--radius-md);
+  font-weight: 700;
+  cursor: pointer;
+  transition: opacity var(--duration-fast);
+}
+
+.training-command button:hover:not(:disabled),
+.training-next button:hover,
+.training-actions button:hover:not(:disabled) {
+  opacity: 0.9;
+}
+
+.training-command button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.weak-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  padding: 16px;
+}
+
+.weak-strip button {
+  min-height: 36px;
+  color: var(--gold);
+  background: var(--gold-surface);
+  border: 1px solid var(--gold-border);
+}
+
+.training-board {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  align-items: start;
+}
+
+.training-column {
+  display: grid;
+  gap: 14px;
+  padding: 18px;
+}
+
+.training-column-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.training-column-head strong {
+  color: var(--text-primary);
+  font-size: 30px;
+}
+
+.training-task-list {
+  display: grid;
+  gap: 14px;
+}
+
+.training-task-card {
+  display: grid;
+  gap: 14px;
+  padding: 18px;
+  background: var(--bg-input);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+}
+
+.training-task-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.training-task-head small {
+  color: var(--text-muted);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.training-task-card > strong {
+  color: var(--text-primary);
+  font-size: 20px;
+  line-height: 1.4;
+}
+
+.training-task-card p {
+  color: var(--text-secondary);
+}
+
+.training-progress {
+  position: relative;
+  height: 10px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: var(--radius-full);
+}
+
+.training-progress span {
+  position: absolute;
+  z-index: 1;
+  inset: -22px auto auto 0;
+  color: var(--text-muted);
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.training-progress i {
+  display: block;
+  height: 100%;
+  background: var(--teal);
+  border-radius: inherit;
+  transition: width 0.25s var(--ease-out);
+}
+
+.training-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.training-actions button {
+  min-height: 38px;
+  padding: 0 14px;
+  border-radius: var(--radius-md);
+}
+
+.training-actions .ghost {
+  color: var(--gold);
+  background: var(--gold-surface);
+  border: 1px solid var(--gold-border);
+}
+
+.training-empty {
+  margin: 0;
+  padding: 24px;
+  color: var(--text-muted);
+  line-height: 1.85;
+  text-align: center;
+  background: var(--bg-input);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+}
+
+.training-next {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: flex-end;
+  padding: 16px;
+}
+
+.training-next button {
+  color: var(--gold);
+  background: var(--gold-surface);
+  border: 1px solid var(--gold-border);
+}
+
+@media (max-width: 1120px) {
+  .training-hero,
+  .training-board {
+    grid-template-columns: 1fr;
+  }
+
+  .training-overview-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 720px) {
+  .training-overview-grid,
+  .training-command {
+    grid-template-columns: 1fr;
+  }
+}

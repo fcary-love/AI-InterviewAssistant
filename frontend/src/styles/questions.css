@@ -1,0 +1,315 @@
+/* ============================================
+   Question Bank — Midnight Observatory
+   ============================================ */
+
+.question-bank-panel {
+  display: grid;
+  gap: 20px;
+}
+
+.question-bank-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 0.44fr);
+  gap: 16px;
+  margin-top: 8px;
+}
+
+.question-bank-hero > div,
+.question-bank-hero > article,
+.question-filters,
+.question-column,
+.wrong-column,
+.question-card,
+.wrong-card {
+  background: rgba(26, 26, 48, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-card);
+}
+
+.question-bank-hero > div {
+  min-height: 190px;
+  padding: 28px;
+  background:
+    radial-gradient(circle at 22% 18%, rgba(45, 212, 191, 0.1), transparent 32%),
+    linear-gradient(155deg, var(--bg-abyss), #272430 74%);
+}
+
+.question-bank-hero > article {
+  display: grid;
+  align-content: space-between;
+  padding: 26px;
+  background:
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    var(--bg-base);
+  background-size: 30px 30px;
+}
+
+.question-bank-hero span,
+.question-section-head span {
+  color: var(--text-muted);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.question-bank-hero > div span,
+.question-bank-hero > div p {
+  color: var(--text-secondary);
+}
+
+.question-bank-hero strong {
+  display: block;
+  margin-top: 12px;
+  color: var(--text-primary);
+  font-size: clamp(32px, 4.2vw, 54px);
+  line-height: 1;
+}
+
+.question-bank-hero article strong {
+  color: var(--text-primary);
+  font-size: 34px;
+}
+
+.question-bank-hero p {
+  margin: 18px 0 0;
+  color: var(--text-secondary);
+  line-height: 1.85;
+}
+
+.question-filters {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(140px, 1fr)) minmax(190px, 1.2fr) auto;
+  gap: 12px;
+  align-items: end;
+  padding: 16px;
+}
+
+.question-filters label {
+  display: grid;
+  gap: 8px;
+}
+
+.question-filters span {
+  color: var(--text-muted);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.question-filters select,
+.question-filters input {
+  width: 100%;
+  height: 42px;
+  padding: 0 14px;
+  color: var(--text-primary);
+  background: var(--bg-input);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-md);
+  outline: none;
+  font-family: var(--font-body);
+  transition: border-color var(--duration-fast);
+}
+
+.question-filters select:focus,
+.question-filters input:focus {
+  border-color: var(--gold-border);
+}
+
+.question-filters button,
+.question-card button,
+.wrong-card button {
+  min-width: 92px;
+  height: 42px;
+  color: var(--text-inverse);
+  background: linear-gradient(135deg, var(--gold-deep), var(--gold));
+  border: 0;
+  border-radius: var(--radius-md);
+  font-weight: 700;
+  transition: opacity var(--duration-fast);
+}
+
+.question-filters button:hover,
+.question-card button:hover,
+.wrong-card button:hover {
+  opacity: 0.9;
+}
+
+.wrong-actions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.btn-reviewed {
+  color: var(--success) !important;
+  background: rgba(127, 168, 127, 0.12) !important;
+  border: 1px solid rgba(127, 168, 127, 0.25) !important;
+}
+
+.reviewed-badge {
+  color: var(--success);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.wrong-reviewed {
+  opacity: 0.55;
+}
+
+.question-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.18fr) minmax(340px, 0.82fr);
+  gap: 18px;
+  align-items: start;
+}
+
+.question-column,
+.wrong-column {
+  display: grid;
+  gap: 16px;
+  padding: 20px;
+}
+
+.question-section-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  align-items: baseline;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.question-section-head strong {
+  color: var(--text-primary);
+  font-size: 23px;
+}
+
+.question-list,
+.wrong-list {
+  display: grid;
+  gap: 14px;
+  max-height: 740px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.question-card {
+  display: grid;
+  gap: 14px;
+  padding: 18px;
+  box-shadow: none;
+}
+
+.question-card-head {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 14px;
+}
+
+.question-card-head span,
+.wrong-card small {
+  color: var(--text-muted);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.question-card-head strong,
+.wrong-card strong {
+  display: block;
+  margin-top: 8px;
+  color: var(--text-primary);
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+.question-card-head small {
+  height: fit-content;
+  padding: 7px 10px;
+  color: var(--teal);
+  background: var(--teal-surface);
+  border: 1px solid var(--teal-border);
+  border-radius: var(--radius-full);
+  font-weight: 700;
+}
+
+.question-card details {
+  padding: 14px 16px;
+  background: var(--bg-input);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+}
+
+.question-card summary {
+  color: var(--gold);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.question-card details p,
+.wrong-card p {
+  margin: 12px 0 0;
+  color: var(--text-secondary);
+  line-height: 1.85;
+}
+
+.question-card details a {
+  display: inline-block;
+  margin-top: 12px;
+  color: var(--teal);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.wrong-card {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 16px;
+  padding: 16px;
+  box-shadow: none;
+}
+
+.wrong-score {
+  display: grid;
+  place-items: center;
+  width: 74px;
+  height: 74px;
+  background: linear-gradient(135deg, var(--gold-deep), var(--gold));
+  border-radius: var(--radius-lg);
+}
+
+.wrong-score span {
+  color: rgba(21, 20, 25, 0.75);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.wrong-score strong {
+  margin: 0;
+  color: var(--text-inverse);
+  font-size: 30px;
+  line-height: 1;
+}
+
+.question-empty {
+  margin: 0;
+  padding: 28px;
+  color: var(--text-muted);
+  line-height: 1.85;
+  text-align: center;
+  background: var(--bg-input);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+}
+
+@media (max-width: 980px) {
+  .question-bank-hero,
+  .question-layout,
+  .question-filters {
+    grid-template-columns: 1fr;
+  }
+}

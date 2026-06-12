@@ -1,0 +1,9 @@
+/* ============================================
+   Home — Aurora Dark
+   Styles now in HomePage.vue scoped CSS.
+   This file kept for backward compatibility.
+   ============================================ */
+
+.hidden-input {
+  display: none;
+}

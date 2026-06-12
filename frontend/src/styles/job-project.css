@@ -1,0 +1,270 @@
+/* ============================================
+   Job Projects — Midnight Observatory
+   ============================================ */
+
+.job-project-panel {
+  display: grid;
+  gap: 20px;
+}
+
+.project-create-card,
+.project-list,
+.project-detail,
+.project-empty,
+.project-text-grid article {
+  background: rgba(26, 26, 48, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-xl);
+}
+
+.project-create-card {
+  display: grid;
+  grid-template-columns: minmax(250px, 0.38fr) minmax(0, 1fr);
+  gap: 20px;
+  padding: 24px;
+}
+
+.project-create-card span,
+.project-text-grid span {
+  color: var(--text-muted);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.project-create-card strong {
+  display: block;
+  margin-top: 10px;
+  color: var(--text-primary);
+  font-size: 30px;
+  line-height: 1.14;
+}
+
+.project-create-card p {
+  margin: 14px 0 0;
+  color: var(--text-secondary);
+  line-height: 1.85;
+}
+
+.project-create-card form {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 12px;
+}
+
+.project-create-card textarea {
+  grid-column: 1 / -1;
+  min-height: 130px;
+  resize: vertical;
+}
+
+.project-create-card input,
+.project-create-card textarea {
+  width: 100%;
+  padding: 14px 16px;
+  color: var(--text-primary);
+  background: var(--bg-input);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-md);
+  outline: none;
+  font: inherit;
+  transition: border-color var(--duration-fast);
+}
+
+.project-create-card input:focus,
+.project-create-card textarea:focus {
+  border-color: var(--gold-border);
+}
+
+.project-create-card button,
+.project-actions button {
+  height: 46px;
+  padding: 0 18px;
+  color: var(--text-inverse);
+  background: linear-gradient(135deg, var(--gold-deep), var(--gold));
+  border: 0;
+  border-radius: var(--radius-full);
+  font-weight: 700;
+  cursor: pointer;
+  transition: opacity var(--duration-fast);
+}
+
+.project-create-card button:hover:not(:disabled),
+.project-actions button:hover:not(:disabled) {
+  opacity: 0.9;
+}
+
+.project-create-card button {
+  justify-self: end;
+  min-width: 148px;
+}
+
+.project-create-card button:disabled,
+.project-actions button:disabled {
+  color: var(--text-muted);
+  background: var(--bg-input);
+  border: 1px solid var(--border-default);
+  cursor: not-allowed;
+}
+
+.project-workspace {
+  display: grid;
+  grid-template-columns: minmax(280px, 0.34fr) minmax(0, 1fr);
+  gap: 18px;
+}
+
+.project-list {
+  display: grid;
+  align-content: start;
+  gap: 12px;
+  max-height: 780px;
+  padding: 14px;
+  overflow: auto;
+}
+
+.project-row {
+  display: grid;
+  gap: 8px;
+  width: 100%;
+  padding: 16px;
+  color: var(--text-primary);
+  text-align: left;
+  background: rgba(255, 255, 255, 0.015);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all var(--duration-fast);
+}
+
+.project-row:hover {
+  border-color: var(--border-default);
+}
+
+.project-row.active {
+  background:
+    radial-gradient(circle at 22% 22%, rgba(45, 212, 191, 0.1), transparent 32%),
+    linear-gradient(155deg, #181720, #2a2831);
+  border-color: var(--gold-border);
+}
+
+.project-row span,
+.project-row small,
+.project-row p {
+  color: inherit;
+  opacity: 0.7;
+}
+
+.project-row span {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.project-row strong {
+  color: inherit;
+  line-height: 1.5;
+}
+
+.project-row p {
+  margin: 0;
+  line-height: 1.7;
+}
+
+.project-empty {
+  padding: 20px;
+  color: var(--text-muted);
+  line-height: 1.85;
+}
+
+.project-detail {
+  min-height: 780px;
+  padding: 22px;
+}
+
+.project-detail-head {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) minmax(190px, 0.24fr);
+  gap: 18px;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.project-detail-head span {
+  color: var(--text-muted);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.project-detail-head strong {
+  display: block;
+  margin-top: 8px;
+  color: var(--text-primary);
+  font-size: 26px;
+}
+
+.project-detail-head small {
+  display: block;
+  margin-top: 10px;
+  color: var(--text-muted);
+}
+
+.project-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.project-actions button:nth-child(2) {
+  color: var(--gold);
+  background: var(--gold-surface);
+  border: 1px solid var(--gold-border);
+}
+
+.project-text-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 16px;
+}
+
+.project-text-grid article {
+  display: grid;
+  gap: 12px;
+  padding: 18px;
+}
+
+.project-text-grid pre {
+  max-height: 450px;
+  margin: 0;
+  padding: 20px;
+  overflow: auto;
+  color: var(--text-primary);
+  white-space: pre-wrap;
+  word-break: break-word;
+  background:
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    var(--bg-base);
+  background-size: 30px 30px;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  font-family: inherit;
+  line-height: 1.95;
+}
+
+@media (max-width: 980px) {
+  .project-create-card,
+  .project-create-card form,
+  .project-workspace,
+  .project-detail-head,
+  .project-text-grid {
+    grid-template-columns: 1fr;
+  }
+}

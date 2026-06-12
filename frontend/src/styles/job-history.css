@@ -1,0 +1,404 @@
+/* ============================================
+   Job Match History — Midnight Observatory
+   ============================================ */
+
+.job-history-panel {
+  min-height: 640px;
+}
+
+.job-history-empty,
+.job-history-notice,
+.job-history-list,
+.job-history-detail {
+  background: rgba(26, 26, 48, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-xl);
+}
+
+.job-history-empty {
+  display: grid;
+  place-items: center;
+  gap: 14px;
+  min-height: 520px;
+  margin-top: 20px;
+  padding: 36px;
+  text-align: center;
+}
+
+.job-history-empty span,
+.job-history-detail-head span,
+.job-history-sections span,
+.job-history-analysis span,
+.job-history-score span {
+  color: var(--text-muted);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.job-history-empty strong {
+  max-width: 700px;
+  color: var(--text-primary);
+  font-size: clamp(28px, 4.2vw, 50px);
+  line-height: 1.08;
+}
+
+.job-history-empty p {
+  max-width: 640px;
+  margin: 0;
+  color: var(--text-secondary);
+  line-height: 1.9;
+}
+
+.job-history-empty button,
+.job-history-detail-head button {
+  width: fit-content;
+  min-width: 134px;
+  height: 44px;
+  padding: 0 18px;
+  color: var(--text-inverse);
+  background: linear-gradient(135deg, var(--gold-deep), var(--gold));
+  border: 0;
+  border-radius: var(--radius-full);
+  font-weight: 700;
+  cursor: pointer;
+  transition: opacity var(--duration-fast);
+}
+
+.job-history-empty button:hover,
+.job-history-detail-head button:hover {
+  opacity: 0.9;
+}
+
+.job-history-notice {
+  margin-top: 18px;
+  padding: 16px 18px;
+  color: var(--danger);
+  background: var(--danger-surface);
+  border-color: rgba(200, 112, 96, 0.2);
+}
+
+.job-history-layout {
+  display: grid;
+  grid-template-columns: minmax(280px, 0.38fr) minmax(0, 1fr);
+  gap: 18px;
+  margin-top: 20px;
+}
+
+.job-history-list {
+  display: grid;
+  align-content: start;
+  gap: 12px;
+  max-height: 710px;
+  padding: 14px;
+  overflow: auto;
+}
+
+.job-history-summary {
+  display: grid;
+  gap: 4px;
+  padding: 20px;
+  background:
+    radial-gradient(circle at 76% 26%, rgba(45, 212, 191, 0.12), transparent 30%),
+    linear-gradient(155deg, var(--bg-abyss), #2b2932);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-default);
+}
+
+.job-history-summary span,
+.job-history-compare-head span,
+.job-history-brief span {
+  color: var(--text-muted);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  opacity: 0.75;
+}
+
+.job-history-summary strong {
+  color: var(--gold);
+  font-size: 46px;
+  line-height: 0.93;
+}
+
+.job-history-summary small {
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+
+.job-history-compare {
+  display: grid;
+  gap: 10px;
+  padding: 16px;
+  background: var(--bg-input);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+}
+
+.job-history-compare-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  color: var(--text-muted);
+}
+
+.job-history-compare-head small {
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.job-history-bar {
+  display: grid;
+  grid-template-columns: 40px minmax(0, 1fr);
+  gap: 12px;
+  align-items: center;
+  padding: 0;
+  color: var(--text-primary);
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+}
+
+.job-history-bar span {
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.job-history-bar i {
+  display: block;
+  height: 10px;
+  background: var(--teal);
+  border-radius: var(--radius-full);
+  transition: width 0.25s var(--ease-out), background 0.2s;
+}
+
+.job-history-bar.active i {
+  background: var(--gold);
+}
+
+.job-history-row {
+  display: grid;
+  gap: 8px;
+  width: 100%;
+  padding: 16px;
+  text-align: left;
+  background: rgba(255, 255, 255, 0.015);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all var(--duration-fast);
+}
+
+.job-history-row:hover {
+  border-color: var(--border-default);
+}
+
+.job-history-row.active {
+  background:
+    radial-gradient(circle at 22% 22%, rgba(45, 212, 191, 0.1), transparent 32%),
+    linear-gradient(155deg, #181720, #2a2831);
+  border-color: var(--gold-border);
+}
+
+.job-history-row span,
+.job-history-row small {
+  color: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  opacity: 0.7;
+}
+
+.job-history-row strong {
+  color: inherit;
+  line-height: 1.65;
+}
+
+.job-history-detail {
+  min-height: 710px;
+  padding: 22px;
+}
+
+.job-history-placeholder {
+  display: grid;
+  place-items: center;
+  gap: 12px;
+  min-height: 580px;
+  color: var(--text-secondary);
+  text-align: center;
+}
+
+.job-history-placeholder strong {
+  color: var(--text-primary);
+  font-size: 30px;
+}
+
+.job-history-placeholder p {
+  max-width: 540px;
+  margin: 0;
+  line-height: 1.85;
+}
+
+.job-history-detail-head {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 18px;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.job-history-score {
+  display: grid;
+  place-items: center;
+  width: 100px;
+  height: 100px;
+  background: linear-gradient(135deg, var(--gold-deep), var(--gold));
+  border-radius: var(--radius-xl);
+}
+
+.job-history-score span {
+  color: rgba(21, 20, 25, 0.7);
+}
+
+.job-history-score strong {
+  color: var(--text-inverse);
+  font-size: 40px;
+  line-height: 0.88;
+}
+
+.job-history-detail-head strong {
+  display: block;
+  margin-top: 8px;
+  color: var(--text-primary);
+  font-size: 23px;
+}
+
+.job-history-detail-head small {
+  display: block;
+  margin-top: 8px;
+  color: var(--text-muted);
+}
+
+.job-history-actions {
+  display: flex;
+  grid-column: 1 / -1;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.job-history-actions .ghost {
+  color: var(--text-primary);
+  background: var(--bg-input);
+  border: 1px solid var(--border-default);
+}
+
+.job-history-brief {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin-bottom: 16px;
+}
+
+.job-history-brief article {
+  display: grid;
+  gap: 8px;
+  min-height: 120px;
+  padding: 18px;
+  background: var(--bg-input);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+}
+
+.job-history-brief strong {
+  color: var(--text-primary);
+  font-size: 26px;
+}
+
+.job-history-brief small {
+  color: var(--text-muted);
+  line-height: 1.65;
+}
+
+.job-history-sections {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.job-history-sections article {
+  display: grid;
+  align-content: start;
+  gap: 12px;
+  min-height: 170px;
+  padding: 18px;
+  background:
+    linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+    linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+    var(--bg-base);
+  background-size: 30px 30px;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+}
+
+.job-history-sections ol {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding-left: 20px;
+  color: var(--text-primary);
+  line-height: 1.8;
+}
+
+.job-history-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.job-history-tags small {
+  padding: 7px 12px;
+  color: var(--teal);
+  background: var(--teal-surface);
+  border: 1px solid var(--teal-border);
+  border-radius: var(--radius-full);
+  font-weight: 600;
+}
+
+.job-history-tags.warn small {
+  color: var(--warning);
+  background: rgba(201, 162, 85, 0.08);
+  border-color: rgba(201, 162, 85, 0.18);
+}
+
+.job-history-analysis {
+  display: grid;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.job-history-analysis pre {
+  max-height: 440px;
+  margin: 0;
+  padding: 22px;
+  overflow: auto;
+  color: var(--text-primary);
+  white-space: pre-wrap;
+  word-break: break-word;
+  background: var(--bg-input);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  font-family: inherit;
+  line-height: 1.95;
+}
+
+@media (max-width: 980px) {
+  .job-history-layout,
+  .job-history-detail-head,
+  .job-history-brief,
+  .job-history-sections {
+    grid-template-columns: 1fr;
+  }
+}
